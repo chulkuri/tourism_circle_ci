@@ -1,0 +1,33 @@
+.favorite-bg-img{
+    background-image: url("https://www.travelandleisure.com/thmb/SPUPzO88ZXq6P4Sm4mC5Xuinoik=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/eiffel-tower-paris-france-EIFFEL0217-6ccc3553e98946f18c893018d5b42bde.jpg");
+    height: 100vh;
+    background-size: cover;
+}
+.heading-favorite-place{
+    color: white;
+    font-family: "roboto";
+    font-weight: bold;
+    font-size: 30px;
+    padding: 25px;
+}
+.favourate-place-card{
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+
+}
+.favourate-place-heading{
+    font-family: "roboto";
+    font-weight: bold;
+    color: black;
+}
+.favourate-place-paragraph{
+    font-family: "roboto";
+    font-style: italic;
+    
+}
+.favourate-place-image{
+    width: 80px;
+    height: 100px;
+}

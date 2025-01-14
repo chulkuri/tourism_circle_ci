@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="tourismintigration.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+  <body>
+        <div id="sectionHome">
+            <div class="bg-container1 d-flex flex-column justify-content-end">
+                <div class="tourism-card">
+                    <h1 class="main-heading">Tourism</h1>
+                    <p class="paragraph">Travel wherever you want and Have a great fun</p>
+                    <button class="button" onclick="display('sectionplaces')">Get started</button>
+                </div>
+            </div>
+        </div>
+        <div id="sectionplaces">
+            <div class="favorite-bg-img">
+                <h1 class="heading-favorite-place">Favorite places</h1>
+                <div class="favourate-place-card d-flex flex-row">
+                    <div>
+                        <h1 class="favourate-place-heading" onclick="display('section_Tajmahal_Detailedview')">TAJ MAHAL</h1>
+                        <p class="favourate-place-paragraph">The Taj Mahal  is an ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India. It was commissioned in 1631 by the fifth Mughal emperor, Shah Jahan (r. 1628–1658) to house the tomb of his beloved wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.</p>
+                    </div>
+                    <img src="https://www.travelandleisure.com/thmb/wdUcyBQyQ0wUVs4wLahp0iWgZhc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/taj-mahal-agra-india-TAJ0217-9eab8f20d11d4391901867ed1ce222b8.jpg" class="favourate-place-image"/>
+                </div>
+                <div class="favourate-place-card d-flex flex-row">
+                            <div>
+                                <h1 class="favourate-place-heading" onclick="display('section_charminar_Detailedview')">Charminar</h1>
+                                <p class="favourate-place-paragraph">The Charminar is a monument located in Hyderabad, Telangana, India. Constructed in 1591, the landmark is a symbol of Hyderabad and officially incorporated in the emblem of Telangana.[3] The Charminar's long history includes the existence of a mosque on its top floor for more than 425 years.</p>
+                            </div>
+                            <img src="https://newsmeter.in/h-upload/2023/03/23/342090-2023-03-23-180739.webp" class="favourate-place-image"/>
+                </div>
+                <div class="favourate-place-card d-flex flex-row">
+                            <div>
+                                <h1 class="favourate-place-heading">Rad Fort</h1>
+                                <p class="favourate-place-paragraph">The Red Fort, also known as Lal Qila ,it is a historic fort located in Delhi, India, that historically served as the main residence of the Mughal emperors. Emperor Shah Jahan commissioned construction of the Red Fort, on 12 May 1639, when he decided to shift his capital from Agra to Delhi.</p>
+                            </div>
+                            <img src="https://cdn.britannica.com/20/189820-050-D650A54D/Red-Fort-Old-Delhi-India.jpg" class="favourate-place-image"/>
+                 </div>
+                <div class="favourate-place-card d-flex flex-row">
+                            <div>
+                                <h1 class="favourate-place-heading" onclick="display('section_birla_Detailedview')">Birla Mandir</h1>
+                                <p class="favourate-place-paragraph">Birla Mandir is a Hindu temple built on a 280 feet (85 m) high hillock called Naubath Pahad on a 13 acres (53,000 m2) plot in Hyderabad, Telangana, India. The construction took ten years and was opened in 1976 by Swami Ranganathananda of Ramakrishna Mission..</p>
+                            </div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Birla_Mandir%2C_Hyderabad.png/1280px-Birla_Mandir%2C_Hyderabad.png" class="favourate-place-image"/>
+                </div>
+                <button class="btn btn-secondary" onclick="display('sectionHome')">Back</button>
+            </div>
+        </div>
+        <div id="section_Tajmahal_Detailedview">
+            <div class="bg-container">
+                <h1 class="main-heading">Detailed View</h1>
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/49HTIoCccDY" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-container">
+                        <h1 class="heading1">Taj mahal</h1>
+                        <p>The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned in 1632 by the Mughal emperor, Shah Jahan (reigned from 1628 to 1658), to house the tomb of his favourite wife, Mumtaz Mahal.Taj Mahal is a beautiful and most attractive historical place in India. It is a cultural monument of India which was built by the King Shah Jahan in the memory of his wife (Mumtaz Mahal) after her death. It is situated in a big area having lots of greenery in front and side, a river in back side, and lake and lawn.</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="display('sectionplaces')">Back</button>
+                </div>
+            </div>
+        </div>
+        <div id="section_charminar_Detailedview">
+            <div class="bg-container">
+                <h1 class="main-heading">Detailed View</h1>
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dbgTHckgRKM" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-container">
+                        <h1 class="heading1">Charminar</h1>
+                        <p>The Charminar is a monument located in Hyderabad, Telangana, India. Constructed in 1591, the landmark is a symbol of Hyderabad and officially incorporated in the emblem of Telangana.[3] The Charminar's long history includes the existence of a mosque on its top floor for more than 425 years. While both historically and religiously significant, it is also known for its popular and busy local markets surrounding the structure, and has become one of the most frequented tourist attractions in Hyderabad. Charminar is also a site of numerous festival celebrations.</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="display('sectionplaces')">Back</button>
+                </div>
+            </div>
+        </div>
+        <div id="section_birla_Detailedview">
+            <div class="bg-container col-12">
+                <h1 class="main-heading">Detailed View</h1>
+                <div class="video col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dnyJZ9dBwzM" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-container">
+                        <h1 class="heading1">Birla Temple</h1>
+                        <p>TBirla Mandir is a Hindu temple built on a 280 feet (85 m) high hillock called Naubath Pahad on a 13 acres (53,000 m2) plot in Hyderabad, Telangana, India. The construction took ten years and was opened in 1976 by Swami Ranganathananda of Ramakrishna Mission. The temple was constructed by the Birla Foundation, which has also constructed several similar temples across India, all known as Birla Mandir.</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="display('sectionplaces')">Back</button>
+                </div>
+            </div>
+        </div>
+     <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+    </body>
+</html>
