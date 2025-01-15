@@ -1,9 +1,6 @@
 # Use the official Python image (alpine version is lightweight)
 FROM python:alpine
 
-# Set the working directory inside the container
-WORKDIR /usr/src/app
-
 # Copy the HTML, CSS, and other assets into the container
 COPY ./ ./
 
