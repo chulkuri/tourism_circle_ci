@@ -1,0 +1,37 @@
+version: 2.1
+
+executors:
+  docker-executor:
+    docker:
+      - image: cimg/base:stable
+
+jobs:
+  build_test:
+    executor: docker-executor
+    steps:
+      - checkout
+      - run:
+          name: Verify HTML and CSS Files
+          command: |
+            echo "Verifying HTML and CSS files..."
+            ls -al
+
+  build_docker_image:
+    executor: docker-executor
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: false
+      - run:
+          name: Build Docker Image
+          command: |
+            echo "Building Docker image..."
+            docker build -t $DOCKER_USERNAME/my-frontend-website:latest .
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push $DOCKER_USERNAME/my-frontend-website:latest
+
+workflows:
+  build_test:
+    jobs:
+      - build_test
+      - build_docker_image
