@@ -1,40 +1,37 @@
 version: 2.1
-
-executors:
-  docker-executor:
-    docker:
-      - image: cimg/python:3.9  # Use a more relevant image for Python-based builds
-
 jobs:
   build_test:
-    executor: docker-executor
+    docker:
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run:
-          name: Verify HTML and CSS Files
+          name: List Static Website Files
           command: |
-            echo "Verifying HTML and CSS files..."
+            echo "Listing website files..."
             ls -al
 
   build_docker_image:
-    executor: docker-executor
+    docker:
+      - image: circleci/python:3.9
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: true  # Enable caching for faster builds
+          docker_layer_caching: false
       - run:
           name: Build Docker Image
           command: |
             echo "Building Docker image..."
-            docker build -t $DOCKER_USERNAME/my-tourism-website:latest .
+            docker build -t $DOCKER_USERNAME/static-website:latest .
+      - run:
+          name: Push Docker Image to Docker Hub
+          command: |
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-            docker push $DOCKER_USERNAME/my-tourism-website:latest
+            echo "Pushing image to Docker Hub..."
+            docker push $DOCKER_USERNAME/static-website:latest
 
 workflows:
-  version: 2
-  build_and_deploy:
+  build_test:
     jobs:
       - build_test
-      - build_docker_image:
-          requires:
-            - build_test  # Ensure 'build_docker_image' runs after 'build_test'
+      - build_docker_image
