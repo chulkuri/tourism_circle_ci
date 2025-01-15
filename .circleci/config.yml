@@ -26,9 +26,9 @@ jobs:
           name: Build Docker Image
           command: |
             echo "Building Docker image..."
-            docker build -t $DOCKER_USERNAME/my-frontend-website:latest .
+            docker build -t $DOCKER_USERNAME/my-tourism-website:latest .
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-            docker push $DOCKER_USERNAME/my-frontend-website:latest
+            docker push $DOCKER_USERNAME/my-tourism-website:latest
 
 workflows:
   build_test:
