@@ -1,14 +1,21 @@
 # Use the official Python image (alpine version is lightweight)
 FROM python:alpine
 
-# Copy the HTML, CSS, and other assets into the container
-COPY ./ ./
+# Install Node.js and npm
+RUN apk add --no-cache nodejs npm
 
-# Install the http-server package globally
+# Install http-server globally
 RUN npm install -g http-server
 
-# Expose port 8081 (or any port you want the server to run on)
-EXPOSE 8081
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
-# Run http-server to serve the static files
-CMD ["http-server", ".", "-p", "8081"]
+# Copy your HTML, CSS, and other assets into the container
+COPY ./ ./
+
+# Expose the port on which the server will run (default is 8080)
+EXPOSE 8080
+
+# Start the HTTP server using http-server
+CMD ["http-server", ".", "-p", "8080"]
+
