@@ -1,5 +1,5 @@
-# Use a lightweight base image with Python to serve the static files
-FROM python:3.9-alpine
+# Use a lightweight Python base image
+FROM python:3.9.18-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -7,8 +7,15 @@ WORKDIR /app
 # Copy all the website files to the working directory
 COPY . /app
 
-# Expose port 8000 for the HTTP server
-EXPOSE 8000
+# Install any missing packages (optional)
+RUN apk add --no-cache bash
 
-# Start Python's built-in HTTP server to serve the static files
-CMD ["python3", "-m", "http.server", "8000"]
+# Ensure proper permissions
+RUN chmod -R 755 /app
+
+# Expose port 8081 for the HTTP server
+EXPOSE 8081
+
+# Start Python's built-in HTTP server on port 8081
+CMD ["python3", "-m", "http.server", "8081"]
+
