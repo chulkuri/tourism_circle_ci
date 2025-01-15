@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/python:3.9  # Use a more relevant image for Python-based builds
 
 jobs:
   build_test:
@@ -21,7 +21,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: false
+          docker_layer_caching: true  # Enable caching for faster builds
       - run:
           name: Build Docker Image
           command: |
@@ -31,7 +31,10 @@ jobs:
             docker push $DOCKER_USERNAME/my-tourism-website:latest
 
 workflows:
-  build_test:
+  version: 2
+  build_and_deploy:
     jobs:
       - build_test
-      - build_docker_image
+      - build_docker_image:
+          requires:
+            - build_test  # Ensure 'build_docker_image' runs after 'build_test'
