@@ -1,5 +1,8 @@
-# Use a lightweight Node.js base image for http-server (even if you're not using a full Node.js app)
-FROM node:alpine
+# Use the official Python image (alpine version is lightweight)
+FROM python:alpine
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
 # Copy the HTML, CSS, and other assets into the container
 COPY ./ ./
