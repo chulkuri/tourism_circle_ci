@@ -1,19 +1,23 @@
 version: 2.1
+
+executors:
+  docker-executor:
+    docker:
+      - image: cimg/base:stable
+
 jobs:
   build_test:
-    docker:
-      - image: circleci/python:3.9
+    executor: docker-executor
     steps:
       - checkout
       - run:
-          name: List Static Website Files
+          name: Verify HTML and CSS Files
           command: |
-            echo "Listing website files..."
+            echo "Verifying HTML and CSS files..."
             ls -al
 
   build_docker_image:
-    docker:
-      - image: circleci/python:3.9
+    executor: docker-executor
     steps:
       - checkout
       - setup_remote_docker:
@@ -22,16 +26,15 @@ jobs:
           name: Build Docker Image
           command: |
             echo "Building Docker image..."
-            docker build -t $DOCKER_USERNAME/static-website:latest .
+            docker build -t $DOCKER_USERNAME/tourism:latest .
       - run:
           name: Push Docker Image to Docker Hub
           command: |
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-            echo "Pushing image to Docker Hub..."
-            docker push $DOCKER_USERNAME/static-website:latest
+            docker push $DOCKER_USERNAME/tourism:latest
 
 workflows:
-  build_test:
+  build_and_deploy:
     jobs:
       - build_test
       - build_docker_image
