@@ -1,21 +1,14 @@
-# Use a lightweight Python base image
-FROM python:3.9.18-alpine
+# Use a lightweight Node.js base image for http-server (even if you're not using a full Node.js app)
+FROM node:alpine
 
-# Set the working directory inside the container
-WORKDIR /app
+# Copy the HTML, CSS, and other assets into the container
+COPY ./ ./
 
-# Copy all the website files to the working directory
-COPY . /app
+# Install the http-server package globally
+RUN npm install -g http-server
 
-# Install any missing packages (optional)
-RUN apk add --no-cache bash
-
-# Ensure proper permissions
-RUN chmod -R 755 /app
-
-# Expose port 8081 for the HTTP server
+# Expose port 8081 (or any port you want the server to run on)
 EXPOSE 8081
 
-# Start Python's built-in HTTP server on port 8081
-CMD ["python3", "-m", "http.server", "8081"]
-
+# Run http-server to serve the static files
+CMD ["http-server", ".", "-p", "8081"]
